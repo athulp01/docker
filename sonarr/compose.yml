@@ -1,0 +1,22 @@
+---
+version: "2.1"
+services:
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    networks: 
+      - torrenting
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+    volumes:
+      - /home/athul/.config/sonarr:/config
+      - /home/athul/plex/shows:/tv
+      - /home/athul/Downloads/torrent:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+networks:
+  torrenting:
+    external: true

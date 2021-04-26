@@ -1,0 +1,21 @@
+version: "2.1"
+services:
+  radarr:
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    networks: 
+      - torrenting
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+    volumes:
+      - /home/athul/.config/radarr:/config
+      - /home/athul/plex/movies:/movies
+      - /home/athul/Downloads/torrent:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+networks:
+  torrenting:
+    external: true

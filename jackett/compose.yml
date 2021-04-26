@@ -1,0 +1,22 @@
+---
+version: "2.1"
+services:
+  jackett:
+    image: ghcr.io/linuxserver/jackett
+    container_name: jackett
+    networks: 
+      - torrenting
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+      - AUTO_UPDATE=true #optional
+    volumes:
+      - /home/athul/.config/jackett:/config
+      - /home/athul/Downloads/torrent:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+networks:
+  torrenting:
+    external: true
