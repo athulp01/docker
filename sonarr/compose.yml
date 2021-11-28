@@ -11,9 +11,9 @@ services:
       - PGID=1000
       - TZ=Asia/Kolkata
     volumes:
-      - /home/athul/.config/sonarr:/config
-      - /home/athul/plex/shows:/tv
-      - /home/athul/Downloads/torrent:/downloads
+      - /home/pi/.config/sonarr:/config
+      - /home/pi/media/shows:/tv
+      - /home/pi/downloads/sonarr:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped

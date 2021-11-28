@@ -10,9 +10,9 @@ services:
       - PGID=1000
       - TZ=Asia/Kolkata
     volumes:
-      - /home/athul/.config/radarr:/config
-      - /home/athul/plex/movies:/movies
-      - /home/athul/Downloads/torrent:/downloads
+      - /home/pi/.config/radarr:/config
+      - /home/pi/media/movies:/movies
+      - /home/pi/downloads/radarr:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
